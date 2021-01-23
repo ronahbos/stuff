@@ -1,0 +1,4 @@
+Forward Outlook folder mail (sync errors) and send mail when Outlook starts.
+
+Tested: Outlook 2016, Outlook 365
+Location VbaProject.OTM: %appdata%\Microsoft\Outlook

@@ -1,0 +1,34 @@
+Public WithEvents FolderItems As Outlook.Items
+
+Private Sub Application_Startup()
+    'Delay
+    CreateNewMessage
+    Set FolderItems = Session.GetDefaultFolder(olFolderSyncIssues).Items
+    Application_Quit
+End Sub
+
+Private Sub FolderItems_ItemAdd(ByVal Item As Object)
+    Set msg = Item.Forward
+    msg.Recipients.Add recipient1
+    msg.DeleteAfterSubmit = True
+    msg.Send
+End Sub
+
+Private Sub CreateNewMessage()
+Dim objMsg As MailItem
+
+Set objMsg = Application.CreateItem(olMailItem)
+    objMsg.To = recipient1
+    objMsg.Subject = "Synchronization Log - Test mail"
+    objMsg.BodyFormat = olFormatPlain
+    objMsg.DeleteAfterSubmit = True
+    objMsg.Send
+    Set objMsg = Nothing
+End Sub
+
+'Private Sub Delay()
+'Sleep (5000)
+'End Sub
+
+Private Sub Application_Quit()
+End Sub

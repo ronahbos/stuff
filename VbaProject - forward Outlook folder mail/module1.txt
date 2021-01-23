@@ -1,0 +1,1 @@
+Public Const recipient1 = "recipient@contoso.com"
