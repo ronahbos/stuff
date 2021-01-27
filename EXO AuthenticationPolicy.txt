@@ -1,6 +1,12 @@
+Get-User
+
+$identity01 = "stub"
+Get-User -Identity $identity01 | select Name, AuthenticationPolicy
+
+------
+
 zonder policy:
 Get-User -Filter "AuthenticationPolicy -ne '*'" | select UserPrincipalName, AuthenticationPolicy
 
 zonder policy, de Block policy geven:
-
 Get-User -Filter "AuthenticationPolicy -ne '*'" | Set-User -AuthenticationPolicy "BlockBasic637377700873358607"
